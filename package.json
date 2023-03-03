@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Expand pseudo shorthands",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
