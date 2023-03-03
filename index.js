@@ -9,6 +9,7 @@ const defaultRules = {
 };
 
 const postcssPseudoShorthand = (opts = {}) => {
+  const isCloned = Symbol();
   const pseudoRules = opts.rules || defaultRules;
   const pseudoRe = new RegExp('(' + Object.keys(pseudoRules).sort().join('|') + ')');
 
@@ -16,6 +17,7 @@ const postcssPseudoShorthand = (opts = {}) => {
     postcssPlugin: 'postcss-pseudo-shorthand',
     Rule(rule, _params) {
       if (!pseudoRe.test(rule.selector)) return;
+      if (rule[isCloned]) return;
 
       let remove = false;
       const parserObject = parser((selectors) => {
@@ -23,7 +25,8 @@ const postcssPseudoShorthand = (opts = {}) => {
           selector.walkPseudos((pseudo) => {
             for (const realName of (pseudoRules[pseudo.value] || [])) {
               pseudo.value = realName;
-              rule.cloneBefore({selector: selector.toString()});
+              const cloned = rule.cloneBefore({selector: selector.toString()});
+              cloned[isCloned] = true;
               remove = true;
             }
           });

@@ -42,3 +42,13 @@ t.test('transform custom', async (t) => {
   const res = await transform('a::cool { color: green; }', {rules});
   t.same(trim(res.css), 'a::-moz-cool{color:green;}');
 });
+
+t.test('avoid recursion', async (t) => {
+  const res = await transform('input::file-selector-button { color: green; }');
+
+  t.same(res.css.split(/\r?\n/).map(trim), [
+    'input::-ms-browse{color:green;}',
+    'input::-webkit-file-upload-button{color:green;}',
+    'input::file-selector-button{color:green;}',
+  ]);
+});

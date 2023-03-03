@@ -1,5 +1,8 @@
 Revision history for https://github.com/jhthorsen/postcss-pseudo-shorthand
 
+0.2.1 2023-03-03T17:32:00
+ - Fix recursion bug
+
 0.2.0 2023-03-03T17:02:00
  - Add rule for "::file-selector-button"
 
