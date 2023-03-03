@@ -1,0 +1,31 @@
+{
+  "name": "postcss-pseudo-shorthand",
+  "version": "0.0.1",
+  "description": "Expand pseudo shorthands",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap --no-coverage test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhthorsen/postcss-pseudo-shorthand.git"
+  },
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "inputs",
+    "pseudos",
+    "color",
+    "range"
+  ],
+  "author": "Jan Henning Thorsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhthorsen/postcss-pseudo-shorthand/issues"
+  },
+  "homepage": "https://github.com/jhthorsen/postcss-pseudo-shorthand#readme"
+}
