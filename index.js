@@ -1,6 +1,8 @@
 import parser from 'postcss-selector-parser';
 
 const defaultRules = {
+  '::color-swatch': ['::-moz-color-swatch', '::-webkit-color-swatch'],
+  '::color-swatch-wrapper': ['::-moz-focus-inner', '::-webkit-color-swatch-wrapper'],
   '::range-thumb': ['::-moz-range-thumb', '::-ms-thumb', '::-webkit-slider-thumb'],
   '::range-track': ['::-moz-range-track', '::-ms-track', '::-webkit-slider-runnable-track'],
 };
